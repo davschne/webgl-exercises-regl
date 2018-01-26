@@ -1,9 +1,5 @@
 import { fetchShaderSource } from '../util.js';
-import {
-  colors,
-  indices,
-  vertices,
-} from './vertices.js';
+import { faces } from './faces.js';
 
 const BLACK = [0, 0, 0, 1];
 
@@ -33,8 +29,8 @@ const modelMatrix = new Matrix4(1);
     vert,
     frag,
     attributes: {
-      a_Position: vertices,
-      a_Color: colors,
+      a_Position: faces.map(face => face.positions),
+      a_Color: faces.map(face => face.colors),
     },
     uniforms: {
       u_MvpMatrix: (context) => {
@@ -44,7 +40,7 @@ const modelMatrix = new Matrix4(1);
         return new Matrix4().set(projMatrix).multiply(viewMatrix).multiply(modelMatrix).elements;
       }
     },
-    elements: indices,
+    elements: faces.map(face => face.indices),
   });
 
   regl.clear({ color: BLACK });
