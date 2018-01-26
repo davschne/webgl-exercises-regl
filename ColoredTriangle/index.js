@@ -1,3 +1,5 @@
+import { fetchShaderSource } from '../util.js';
+
 const RED = [1, 0, 0, 1];
 const GREEN = [0, 1, 0, 1];
 const BLUE = [0, 0, 1, 1];
@@ -17,11 +19,6 @@ const vertices = [
     color: BLUE,
   },
 ];
-
-async function fetchShaderSource(filename) {
-  const response = await fetch(filename);
-  return response.text();
-}
 
 (async function main() {
   const canvas = document.getElementById('webgl');

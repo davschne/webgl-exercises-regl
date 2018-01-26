@@ -1,3 +1,5 @@
+import { fetchShaderSource } from '../util.js';
+
 const BLACK = [0, 0, 0, 1];
 const RED = [1, 0, 0, 1];
 const ANGLE_STEP_DEGREES = 45; // per second
@@ -8,11 +10,6 @@ const vertices = [
 ];
 let currentTime = 0;
 let currentAngle = 0;
-
-async function fetchShaderSource(filename) {
-  const response = await fetch(filename);
-  return response.text();
-}
 
 (async function main() {
   const canvas = document.getElementById('webgl');
