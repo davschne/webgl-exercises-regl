@@ -59,3 +59,25 @@ export function createFullScreenCanvas(container = document.body) {
 
   return canvas;
 }
+
+export function getMouseWebGLCoordinates(mouseEvent, canvas) {
+  const {
+    clientX,
+    clientY,
+    target,
+  } = mouseEvent;
+  const {
+    width,
+    height,
+  } = canvas;
+
+  const {
+    left,
+    right,
+    top,
+  } = target.getBoundingClientRect();
+
+  const x = 2 * ((clientX - left) - width * 0.5) / width;
+  const y = 2 * (height * 0.5 - (clientY - top)) / height;
+  return [x, y];
+}
