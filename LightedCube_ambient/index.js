@@ -1,4 +1,9 @@
 import {
+  Matrix4,
+  Vector3,
+} from '../lib/cuon-matrix.js';
+
+import {
   createFullScreenCanvas,
   fetchShaderSource,
   getMouseWebGLCoordinates,
