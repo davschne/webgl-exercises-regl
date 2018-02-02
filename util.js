@@ -19,7 +19,6 @@ export function fetchImage(filename) {
 
 export function createFullScreenCanvas(container = document.body) {
   const canvas = document.createElement('canvas');
-  const pixelRatio = window.devicePixelRatio;
   Object.assign(canvas.style, {
     border: 0,
     margin: 0,
@@ -39,15 +38,15 @@ export function createFullScreenCanvas(container = document.body) {
   }
 
   function resize() {
-    var w = window.innerWidth;
-    var h = window.innerHeight;
-    if (container !== document.body) {
-      var bounds = container.getBoundingClientRect();
-      w = bounds.right - bounds.left;
-      h = bounds.bottom - bounds.top;
+    let w, h;
+    if (container === document.body) {
+      [w, h] = [window.innerWidth, window.innerHeight];
+    } else {
+      const bounds = container.getBoundingClientRect();
+      [w, h] = [bounds.right - bounds.left, bounds.bottom - bounds.top];
     }
-    canvas.width = pixelRatio * w;
-    canvas.height = pixelRatio * h;
+    canvas.width = w;
+    canvas.height = h;
     canvas.style = Object.assign(canvas.style, {
       width: `${w} px`,
       height: `${h} px`,
