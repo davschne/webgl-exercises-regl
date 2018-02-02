@@ -85,7 +85,7 @@ function getModelMatrix(yawAngle, pitchAngle) {
 
   function draw(modelMatrix) {
     regl.clear({ color: BLACK });
-    drawCube({ modelMatrix })
+    drawCube({ modelMatrix });
   }
 
   draw(getModelMatrix(0, 0));
