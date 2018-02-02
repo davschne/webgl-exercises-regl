@@ -19,7 +19,7 @@ const UP_VECTOR = [0, 1, 0];
 const VIEW_MATRIX = new Matrix4().setLookAt(...EYE_POSITION, ...LOOK_AT_COORDS, ...UP_VECTOR);
 
 const MODEL_TRANSLATION = [0, 0.5, 0];
-const MAX_ROTATION_ANGLE = 90;
+const MAX_ROTATION_ANGLE = 270;
 
 // Perspective settings
 const FIELD_OF_VIEW_DEGREES = 30;

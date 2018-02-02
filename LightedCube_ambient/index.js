@@ -16,7 +16,7 @@ const BLACK = [0, 0, 0, 1];
 const EYE_POSITION_INITIAL = [0, 0, 7];
 const LOOK_AT_COORDS = [0, 0, 0];
 const UP_VECTOR = [0, 1, 0];
-const MAX_ROTATION_ANGLE = 90;
+const MAX_ROTATION_ANGLE = 270;
 
 // Perspective settings
 const FIELD_OF_VIEW_DEGREES = 30;
