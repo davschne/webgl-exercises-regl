@@ -1,4 +1,7 @@
-import { fetchShaderSource } from '../util.js';
+import {
+  fetchShaderSource,
+  getMouseWebGLCoordinates,
+} from '../util.js';
 
 const RED = [1, 0, 0, 1];
 const GREEN = [0, 1, 0, 1];
@@ -38,22 +41,9 @@ const BLACK = [0, 0, 0, 1];
     }
   }
 
-  canvas.addEventListener('click', function onClick({ clientX, clientY, target }) {
-    const {
-      width,
-      height,
-    } = canvas;
-
-    const {
-      left,
-      right,
-      top,
-    } = target.getBoundingClientRect();
-    const x = 2 * ((clientX - left) - width * 0.5) / width;
-    const y = 2 * (height * 0.5 - (clientY - top)) / height;
-
+  canvas.addEventListener('click', function onClick(event) {
+    const [x, y] = getMouseWebGLCoordinates(event, canvas);
     points.push({ position: [x, y, 0, 1], color: getColorByPosition(x, y) });
-
     drawPoints(points);
   });
 
