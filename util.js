@@ -80,3 +80,9 @@ export function getMouseWebGLCoordinates(mouseEvent, canvas) {
   const y = 2 * (height * 0.5 - (clientY - top)) / height;
   return [x, y];
 }
+
+export function getMouseCanvasCoordinates(mouseEvent) {
+  const { clientX, clientY, target } = mouseEvent;
+  const { left, bottom } = target.getBoundingClientRect();
+  return [clientX - left, bottom - clientY];
+}
