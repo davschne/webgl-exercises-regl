@@ -7,7 +7,6 @@ import { faces } from './faces.js';
 import {
   createFullScreenCanvas,
   fetchShaderSource,
-  getMouseWebGLCoordinates,
 } from '../util.js';
 
 const BLACK = [0, 0, 0, 1];
